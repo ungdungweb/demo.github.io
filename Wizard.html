@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="shortcut icon" href="/logo.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="datlichkham,datlichkham.hoibacsi.com,hoibacsi,hoibacsi.com,Đăng ký lịch hẹn khám và tái khám, đăng ký khám trực tuyến tại tại khoa phụ sản BV ĐHYD, giúp Bệnh Nhân rút ngắn thời gian chờ, găp bác sĩ theo yêu cầu, thanh toán nhanh chóng. Khoa Phụ sản BVĐHYD triển khai dịch vụ mới đăng ký lịch hẹn khám và tái khám trực tuyến" />
+    <meta name="title" content="Trang chủ Đặt Lịch Hẹn Khám hoibacsi.com | Gặp Bác sĩ theo yêu cầu, đăng ký tái khám nhanh chóng " />
+    <meta name="keywords" content="datlichkham,datlichkham.hoibacsi.com,hoibacsi,hoibacsi.com,đặt lịch hẹn khám tái khám, đặt hẹn khám bệnh, đăng ký khám bệnh trực tuyến, tái khám, lịch hẹn khám, đăng ký khám trứơc, gặp bác sĩ nhanh, gặp bác sĩ theo yêu cầu, Dịch vụ mới Khoa Phụ Sản BVĐHYD, cơ sở 4, Hỏi đáp, hỏi đáp sức khỏe, khám sản phụ khoa, nhi khoa, bệnh nhi" />
+    <link href="Content/Site.css" rel="stylesheet" type="text/css" />
+       <!-- <link href="Content/Dev.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Validate.css" rel="stylesheet" type="text/css" />
+    <link href="Content/themes/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    <link href="Content/themes/ui-lightness/jquery.ui.theme.css" rel="stylesheet" type="text/css" /> --> 
+   
+    <title>
+        Trang chủ Đặt Lịch Hẹn Kh&#225;m hoibacsi.com | Gặp B&#225;c sĩ theo y&#234;u cầu, đăng k&#253; t&#225;i kh&#225;m nhanh ch&#243;ng
+    </title>
+ 
+    
+
+    <script src="/Scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.tmpl.js" type="text/javascript"></script>
+    <script src="/Scripts/knockout-latest.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui-1.8.16.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.ui.datepicker-vi.js" type="text/javascript"></script>        
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+    
+    <script src="/Scripts/General.js" type="text/javascript"></script>
+
+    <!--[if lte IE 7]>
+       <script type="text/javascript" src="../../Scripts/json2.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-25359516-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            var loc = window.location.href;
+            if (loc.indexOf("/AboutUs") != -1) {
+                $('.menuclass').removeClass("active");
+                $('#mnuAboutUs').addClass("active");
+            }
+            if (loc.indexOf("/Booking") != -1) {
+                $('.menuclass').removeClass("active");
+                $('#mnuBooking').addClass("active");
+            }
+            if (loc.indexOf("/Services") != -1) {
+                $('.menuclass').removeClass("active");
+                $('#mnuServices').addClass("active");
+            }
+            if (loc.indexOf("/Support") != -1) {
+                $('.menuclass').removeClass("active");
+                $('#mnuSupport').addClass("active");
+            }
+            if (loc.indexOf("/ListBanks") != -1) {
+                $('.menuclass').removeClass("active");
+                $('#mnuBanks').addClass("active");
+            }
+            if (loc.indexOf("/Contact") != -1) {
+                $('.menuclass').removeClass("active");
+                $('#mnuContact').addClass("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div class="menu-top">
+                <div class="menu-top-left">
+                </div>
+                <div class="menu-top-content">
+                    <ul>
+                        <li><a class="menuclass" id="mnuHome" href="http://hoibacsi.com" target="_blank">Trang
+                            chủ</a>
+                        </li>
+                        <li><a class="menuclass" href="/" id="mnuBooking">Đăng k&#253; kh&#225;m</a></li>
+                       <li>
+                            <a class="menuclass" href="http://hbs.hoibacsi.com/taikhoanBNdientu" target="_blank">Tài khoản điện tử</a></li>
+                        <li><a class="menuclass" href="/AboutUs" id="mnuAboutUs">Giới thiệu</a></li> 
+                       <li><a class="menuclass" href="/NewBooking/ListBanks" id="mnuBanks">Ng&#226;n h&#224;ng</a></li>                      
+                        <li><a class="menuclass" href="/Services" id="mnuServices">Bảng gi&#225;</a></li>
+                        
+                        <li><a href="http://hbs.hoibacsi.com/LichKhamBenh" target="_blank" class="menuclass"
+                            id="mnuSupport">Lịch khám</a></li>
+                        <li><a href="http://hbs.hoibacsi.com/Lien-he-gop-y" target="_blank" class="menuclass"
+                            id="mnuSupport">Góp ý</a></li>
+                    </ul>
+                    <div class="hotlines">
+                        <p>
+                            <span class="hotline-dark">HOTLINE:</span> 1900.6113<br /> 
+                            <span class="hotline-dark">MAIL:</span>DATKHAM@HOIBACSI.COM
+                        </p>
+                    </div>
+                </div>
+                <div class="menu-top-right">
+                </div>
+            </div>
+            <!-- end #header -->
+        </div>
+        <!-- Logo Inner -->
+        <div id="logo-inner">
+            <a href="http://phusandhyd.vn/ " target="_blank">
+                <img alt="" class="logo-dhyd" src="Content/images/dhyh-logo-inner.png" border="0" /></a>
+            <a href="http://hoibacsi.com" target="_blank">
+                <img alt="" class="logo-hbs" src="Content/images/hbs-logo-inner.png" border="0" /></a>
+            <div class="regis-online-inner">
+                Đăng ký Đặt Lịch Hẹn Khám và Tái Khám Trực Tuyến - KHOA PHỤ SẢN - BV ĐẠI HỌC Y DƯỢC
+                TP.HCM CS4</div>
+        </div>
+        <div id="banner-inner">
+            <img class="img-inner-1" src="Content/images/global-s.png" border="0" />
+            <div class="box-hotline">
+                <div class="top-box-hotline">
+                    <img src="Content/images/top-hotline-box.png" border="0" /></div>
+                <div class="bg-box-hotline">
+                    <a class="online" href="ymsgr:sendim?dung_bu">
+                        <img border="0" src="http://opi.yahoo.com/online?u=dung_bu&amp;m=g&amp;t=2">
+                    </a>
+                  
+                    <ul>
+                        <li><a href="/Support/Register" target="_blank">Hướng dẫn đăng ký</a></li>
+                        <li><a href="/Support/Payment" target="_blank">Hướng dẫn thanh toán</a></li>
+                        <li><a href="/Support/Active" target="_blank">Hướng dẫn kích hoạt</a> </li>
+                    </ul>
+                </div>
+                <div class="bottom-box-hotline">
+                    <img src="Content/images/bottom-hotline-box.png" border="0" /></div>
+            </div>
+        </div>
+        <div id="mainContent">
+            <script src="/Scripts/Step1.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () { 
+    //If patient already registered (exists in database)
+    if ($('#State_PatientRegistered').val() == 1)
+    {
+        
+    }
+    //If patient don't registered (don't exists in database)
+    else if ($('#State_PatientRegistered').val() == 0 || $('#State_PatientRegistered').val() == -1) 
+    {
+        if ($('#BookRegisterType_UI').val()==0 || $('#BookRegisterType_UI').val()==1) 
+        {
+            //set to "kham san khoa hoac noi khoa" for default
+            $('#BookRegisterType_UI').val('1');    
+            
+            $('input:radio')[0].checked=true;
+            $('input:radio')[1].checked=false;
+
+            $('#bookingStep2_1').fadeIn(3000);
+            $('#bookingStep2_2').hide();
+        }        
+        //child examination
+        else if($('#BookRegisterType_UI').val()==2)
+        {
+            $('#BookRegisterType_UI').val('2');    
+
+            //check radio with BookRegisterType                       
+            $('input:radio')[0].checked=false;
+            $('input:radio')[1].checked=true; 
+
+            $('#bookingStep2_1').hide();
+            $('#bookingStep2_2').fadeIn(3000);
+        }   
+    } 
+});
+</script>
+
+<form action="/NewBooking/Wizard" id="form0" method="post"><input id="State_PatientRegistered" name="State.PatientRegistered" type="hidden" value="0" />        <!-- Step Hinh Thuc Kham -->
+<input id="IsBaby_UI" name="IsBaby_UI" type="hidden" value="False" />        <div id="bookingStep1" class="BookingStepCSS">
+            <h2 class="title-inner">
+                Thông tin Bệnh nhân</h2>
+            <p class="titile-inner-dec">
+                Bạn vui lòng điền thông tin Bệnh nhân vào Form bên đưới để đăng ký Khám trực tuyến.</p>
+            <div id="block-inner-left-1" class="LoginBlockCSS">
+               <!-- <div class="block-inner-left-1-top">
+                </div>
+               <div class="block-inner-left-1-content">
+                    <p style="font-weight: bold">
+                        Bạn đăng ký:</p>
+                    <input checked="checked" class="Pointer" id="BookRegisterType" name="BookRegisterType" onclick="selectBookRegisterType(1)" type="radio" value="1" />
+                    <label for="typeQuestion" class="rad Pointer">
+                        Khám Sản phụ khoa
+                    </label>
+                    <label for="typeQuestion" class="rad Pointer">
+                        hoặc Nội khoa
+                    </label>
+                    <p class="notes">
+                        Tạo hồ sơ mới cho Bệnh nhân sản phụ khoa hoặc nội khoa</p>
+                    <input class="Pointer" id="BookRegisterType" name="BookRegisterType" onclick="selectBookRegisterType(2)" type="radio" value="2" />
+                    <label for="typeQuestion" class="rad Pointer">
+                        Khám Nhi</label>
+                    <p class="notes">
+                        Tạo hồ sơ mới cho Bệnh nhân Nhi</p>
+                    <input id="BookRegisterType_UI" name="BookRegisterType_UI" type="hidden" value="0" />
+                </div>
+                <div class="block-inner-left-1-bottom">
+                </div>-->
+            </div>
+        </div>
+        <!-- Step Kham San Phu Khoa -->
+<script type="text/javascript">
+    $(function(){
+        $("#Ob_BirthDay_UI").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showAnim: 'clip',
+            regional: 'vi',
+            yearRange: '1930:2013',
+        });
+        $("#Ob_BirthDay_UI").datepicker("option", "dateFormat", "dd/mm/yy");                
+        $('#Ob_CityName_UI').val($('#Ob_City_UI option:selected').text());
+        $('#Ob_Gender_UI').val("Nữ");
+
+        if ($('#State_PatientRegistered').val()==-1) 
+        {
+            $('.ChildrenNoService').show();
+        }else{
+            $('.ChildrenNoService').hide();
+        }  
+    });
+
+    //Fire when click button "Tiếp theo" of page "_StepObstetric.cshtml"
+    function goToBookingObstetricRegister() {
+        $("#ProductIdService").val("1");
+                
+        var Ob_LastName = jQuery.trim($('#Ob_LastName_UI').val());
+        var Ob_FirstName = jQuery.trim($('#Ob_FirstName_UI').val());
+        var Ob_BirthDay = jQuery.trim($('#Ob_BirthDay_UI').val());
+        var Ob_IdentityCard = jQuery.trim($('#Ob_IdentityCard_UI').val());         
+        var Ob_Address = jQuery.trim($('#Ob_Address_UI').val());
+        var Ob_Phone = jQuery.trim($('#Ob_Phone_UI').val());
+        var Ob_Email = jQuery.trim($('#Ob_Email_UI').val());
+        var mess = '';
+        if (Ob_LastName == '') mess += 'Bạn chưa nhập Họ & Tên đệm\n';
+        if (Ob_FirstName == '') mess += 'Bạn chưa nhập Tên \n';
+        if (Ob_BirthDay == '') mess += 'Bạn chưa nhập Ngày sinh \n';
+        if (Ob_IdentityCard == '') mess += 'Bạn chưa nhập CMND \n';        
+        if (Ob_Address == '') mess += 'Bạn chưa nhập Địa chỉ \n';
+        if (Ob_Phone == '') mess += 'Bạn chưa nhập Số điện thoại \n';
+        if (Ob_Email == '') mess += 'Bạn chưa nhập Email \n';
+        if (mess != '') {
+            mess += 'Xin vui lòng nhập đầy đủ các thông tin bắt buộc trên trước khi qua bước kế tiếp';
+            alert(mess);
+            return false;
+        }
+        if (!isValidEmail(Ob_Email)) {
+            alert('Email không hợp lệ, xin vui lòng kiểm tra lại');
+            return false;
+        } 
+        return true; 
+    }    
+
+    function Ob_BirthDayUpdateView(){        
+        var birthDay=$('#Ob_BirthDay_UI').val();
+        if(birthDay.length==10)
+        {
+            //Check ngay thang nam hop le ko
+            var dateParts = birthDay.split("/");            
+            var _year=dateParts[2];
+            var _month=dateParts[1] - 1;
+            var _day=dateParts[0];
+            var dt=new Date(_year,_month,_day);
+            if(_month>=0&&_month<12)
+            {
+                if(_day>0&&_day<=31)
+                {
+                    var date = new Date(_year,_month,_day);
+                    var currentYear=parseInt(2013);
+                    var year=parseInt(_year);
+                    var age=currentYear-year;
+                    setValue('#Ob_Age_UI',age);              
+                }
+                else
+                    alert("Ngày sinh không hợp lệ");
+            }
+            else
+                alert("Ngày sinh không hợp lệ");
+        }
+        else if(birthDay.length==4)
+        {
+                var currentYear=parseInt(2013);
+                var year=parseInt(birthDay);
+                var age=currentYear-year;
+                setValue('#Ob_Age_UI',age);   
+        }
+        else
+        {
+            alert("Dữ liệu Ngày sinh không hợp lệ");
+        }
+    } 
+
+    function Ob_AgeChange(){
+        var age=$('#Ob_Age_UI').val();
+        var currentYear=parseInt(2013);
+        if(age<=0)
+            alert("Tuổi không hợp lệ");
+        else
+        {
+            var year=currentYear-age;
+            setValue('#Ob_BirthDay_UI',year);            
+        }
+    }
+    function Ob_CityUpdateView()
+    {        
+        $('#Ob_CityName_UI').val($('#Ob_City_UI option:selected').text());     
+    }    
+</script>
+<div id="bookingStep2_1" class="BookingStepCSS" style="margin-left: 100px;">
+    <div id="block-inner-right-2-middle">
+        <div class="block-inner-right-2-top">
+        </div>
+        <div class="block-inner-right-2-content">
+            <h4>Thông Tin Bệnh Nhân Đăng Kí Khám</h4>            
+            
+            
+           <!-- <p class="for-form ChildrenNoService">
+                <label class="infor-sponsor">
+                    MSBN (nếu có):</label>
+                <input class="year-sponsor" id="PatientCode_UI" maxlength="50" name="PatientCode_UI" style="width:153px;margin-left:0px;margin-right:9px" type="text" value="" />              
+            </p>-->  
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Họ <span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" data-bind="value:Ob_LastName,valueUpdate: &#39;change&#39;" id="Ob_LastName_UI" maxlength="50" name="Ob_LastName_UI" style="width:170px;margin-left:40px;margin-right:5px" type="text" value="" />
+               <label class="infor-sponsor">
+                        Tên<span class="color-red">(*)</span>:</label>
+                    <input class="sex-sponsor" data-bind="value:Ob_FirstName,valueUpdate: &#39;change&#39;" id="Ob_FirstName_UI" maxlength="30" name="Ob_FirstName_UI" style="width:100px;margin-left:28px;" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Ngày sinh<span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" id="Ob_BirthDay_UI" maxlength="10" name="Ob_BirthDay_UI" onchange="Ob_BirthDayUpdateView()" style="width:170px;margin-right:5px; margin-left:1px" type="text" value="" />
+                    <label class="infor-sponsor">
+                        Tuổi:</label>
+                    <input class="sex-sponsor" id="Ob_Age_UI" maxlength="2" name="Ob_Age_UI" onchange="Ob_AgeChange()" onkeypress="return acceptNumberOnly(this, event);" style="width:100px;margin-left:40px" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Giới tính<span class="color-red">(*)</span>:</label>
+                <select class="year-sponsor" id="Ob_Gender_UI" name="Ob_Gender_UI" style="width:100px;margin-left:9px;margin-right:76px"><option value="Nam">Nam</option>
+<option value="Nữ">Nữ</option>
+</select>
+                    <label class="infor-sponsor">
+                        CMND <span class="color-red">(*)</span>:</label>
+                    <input data-bind="value:Ob_IdentityCard,valueUpdate: &#39;change&#39;" id="Ob_IdentityCard_UI" maxlength="9" name="Ob_IdentityCard_UI" onkeypress="return acceptNumberOnly(this, event);" style="width:100px;margin-left:20px" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Địa chỉ<span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" data-bind="value:Ob_Address,valueUpdate: &#39;change&#39;" id="Ob_Address_UI" maxlength="300" name="Ob_Address_UI" style="width:360px;margin-left:19px;margin-right:3px" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Tỉnh/TP<span class="color-red">(*)</span>:</label>
+                <select class="year-sponsor" id="Ob_City_UI" name="Ob_City_UI" onchange="Ob_CityUpdateView()" style="width:170px;margin-left:15px;margin-right:5px"><option value="2">H&#224; Nội</option>
+<option value="3">Hải Ph&#242;ng</option>
+<option value="4">Vĩnh Ph&#250;c</option>
+<option value="5">H&#224; T&#226;y</option>
+<option value="6">Hải Dương</option>
+<option value="7">Hưng Y&#234;n</option>
+<option value="8">H&#224; Nam</option>
+<option value="9">Nam Định</option>
+<option value="10">Th&#225;i B&#236;nh</option>
+<option value="11">Ninh B&#236;nh</option>
+<option value="12">H&#224; Giang</option>
+<option value="13">Cao Bằng</option>
+<option value="14">L&#224;o Cai</option>
+<option value="15">Bắc Kạn</option>
+<option value="16">Lạng Sơn</option>
+<option value="17">Tuy&#234;n Quang</option>
+<option value="18">Y&#234;n B&#225;i</option>
+<option value="19">Th&#225;i Nguy&#234;n</option>
+<option value="20">Ph&#250; Thọ</option>
+<option value="21">Bắc Giang</option>
+<option value="22">Bắc Ninh</option>
+<option value="23">Quảng Ninh</option>
+<option value="24">Lai Ch&#226;u</option>
+<option value="25">Sơn La</option>
+<option value="26">H&#242;a B&#236;nh</option>
+<option value="27">Điện Bi&#234;n</option>
+<option value="28">Thanh H&#243;a</option>
+<option value="29">Nghệ An</option>
+<option value="30">H&#224; Tĩnh</option>
+<option value="31">Quảng B&#236;nh</option>
+<option value="32">Quảng Trị</option>
+<option value="33">Thừa Thi&#234;n - Huế</option>
+<option value="34">Đ&#224; Nẵng</option>
+<option value="35">Quảng Nam</option>
+<option value="36">Quảng Ng&#227;i</option>
+<option value="37">B&#236;nh Định</option>
+<option value="38">Ph&#250; Y&#234;n</option>
+<option value="39">Kh&#225;nh H&#242;a</option>
+<option value="40">Kon Tum</option>
+<option value="41">Gia Lai</option>
+<option value="42">Đắk Lắk</option>
+<option value="43">Đắk N&#244;ng</option>
+<option selected="selected" value="44">Hồ Ch&#237; Minh</option>
+<option value="45">L&#226;m Đồng</option>
+<option value="46">Ninh Thuận</option>
+<option value="47">B&#236;nh Phước</option>
+<option value="48">T&#226;y Ninh</option>
+<option value="49">B&#236;nh Dương</option>
+<option value="50">Đồng Nai</option>
+<option value="51">B&#236;nh Thuận</option>
+<option value="52">B&#224; Rịa - Vũng Tầu</option>
+<option value="53">Long An</option>
+<option value="54">Đồng Th&#225;p</option>
+<option value="55">An Giang</option>
+<option value="56">Tiền Giang</option>
+<option value="57">Vĩnh Long</option>
+<option value="58">Bến Tre</option>
+<option value="59">Ki&#234;n Giang</option>
+<option value="60">Cần Thơ</option>
+<option value="61">Tr&#224; Vinh</option>
+<option value="62">S&#243;c Trăng</option>
+<option value="63">Bạc Li&#234;u</option>
+<option value="64">C&#224; Mau</option>
+<option value="65">Hậu Giang</option>
+</select>
+                    <input id="Ob_CityName_UI" name="Ob_CityName_UI" type="hidden" value="Hồ Chí Minh" />
+                    <label class="infor-sponsor">
+                        ĐT <span class="color-red">(*)</span>:</label>
+                    <input class="sex-sponsor" data-bind="value:Ob_Phone,valueUpdate: &#39;change&#39;" id="Ob_Phone_UI" maxlength="15" name="Ob_Phone_UI" onkeypress="return acceptNumberOnly(this, event);" style="width:145px;" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Email <span class="color-red">(*)</span>:</label>
+                <input data-bind="value:Ob_Email,valueUpdate: &#39;change&#39;" id="Ob_Email_UI" maxlength="150" name="Ob_Email_UI" style="width:360px;margin-left:23px" type="text" value="" />
+            </p>
+            <p style="color:Red;margin-left:73px;font-style:italic;font-size:12px;">Vui lòng nhập đúng email của anh/chị. Chúng tôi sẽ gửi phiếu khám từ email <a href="datlichkham.hbs@hoibacsi.com">datlichkham.hbs@hoibacsi.com</a> đến email này ( Vui lòng kiểm tra thêm hộp mail rác của anh chị)</p>
+            <label class="notes-form" style="width: 100%;">
+                <ul>
+                    <span class="text-under">Chú ý:</span>
+                    <li style="list-style: none">- Những mục có dấu <span class="color-red">(*)</span> là
+                        bắt buộc.</li>
+                    <li style="list-style: none">- Mã số bệnh nhân sẽ được cấp phát sau khi bạn đăng ký
+                        thành công !</li>
+                </ul>
+            </label>
+            <br class="clearfloat" />
+            <!--<span class="button_blue button_update"><a href="javascript:void(0)" onclick="goToBookingObstetricRegister()">
+                Tiếp theo</a> </span>-->
+           
+            <input class="btnSubmit" type="submit" name="Page1_to_Page2" value="Tiếp theo" onclick="return goToBookingObstetricRegister();" />
+            
+        </div>
+        <div class="block-inner-right-2-bottom">
+        </div>
+    </div>
+</div>
+        <!-- Step Kham Nhi -->
+<script type="text/javascript">
+    $(function(){
+        //Init calendar of Child
+        $("#Child_BirthDay_UI").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showAnim: 'clip',
+            regional: 'vi',
+            yearRange: '2000:2013'
+        });
+        $("#Child_BirthDay_UI").datepicker("option", "dateFormat", "dd/mm/yy");
+
+        $("#Rel_BirthDay_UI").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showAnim: 'clip',
+            regional: 'vi',
+            yearRange: '1930:2013'
+        });
+        $("#Rel_BirthDay_UI").datepicker("option", "dateFormat", "dd/mm/yy");
+
+        $('#Child_CityName_UI').val($('#Child_City_UI option:selected').text());
+        $('#Rel_CityName_UI').val($('#Rel_City_UI option:selected').text());      
+        
+        if ($('#State_PatientRegistered').val()==-1) 
+        {
+            $('.ChildrenNoService').show();
+        }else{
+            $('.ChildrenNoService').hide();
+        }  
+    });
+    
+    //Fire when click button "Tiếp theo" of page "_StepChildren.cshtml"
+    function goToBookingChildrenRegister(){
+
+        $("#ProductIdService").val("358");
+    
+        var Child_LastName = jQuery.trim($('#Child_LastName_UI').val());
+        var Child_FirstName = jQuery.trim($('#Child_FirstName_UI').val());
+        var Child_BirthDay = jQuery.trim($('#Child_BirthDay_UI').val());
+        var Child_Address = jQuery.trim($('#Child_Address_UI').val());
+        var Rel_FullName = jQuery.trim($('#Rel_FullName_UI').val());
+        var Rel_Email = jQuery.trim($('#Rel_Email_UI').val());
+        var Rel_BirthDay = jQuery.trim($('#Rel_BirthDay_UI').val());
+        var Rel_IdentityCard = jQuery.trim($('#Rel_IdentityCard_UI').val());        
+        var Rel_Phone = jQuery.trim($('#Rel_Phone_UI').val());
+        var Rel_Address = jQuery.trim($('#Rel_Address_UI').val());
+        var mess = '';
+        if (Child_LastName == '') mess += 'Bạn chưa nhập Họ & Tên đệm bệnh Nhi\n';
+        if (Child_FirstName == '') mess += 'Bạn chưa nhập Tên bệnh Nhi\n';
+        if (Child_BirthDay == '') mess += 'Bạn chưa nhập Ngày sinh bệnh Nhi\n';
+        if (Child_Address == '') mess += 'Bạn chưa nhập Địa chỉ bệnh nhi \n';
+        if (Rel_FullName == '') mess += 'Bạn chưa nhập Họ & Tên người đại diện\n';
+        if (Rel_BirthDay == '') mess += 'Bạn chưa nhập Ngày sinh người đại diện\n';
+        if (Rel_IdentityCard == '') mess += 'Bạn chưa nhập CMND người đại diện\n';        
+        if (Rel_Address == '') mess += 'Bạn chưa nhập Địa chỉ người đại diện\n';
+        if (Rel_Phone == '') mess += 'Bạn chưa nhập Số điện thoại người đại diện\n';
+        if (Rel_Email == '') mess += 'Bạn chưa nhập Email người đại diện\n';
+        if (mess != '') {
+            mess += 'Xin vui lòng nhập đầy đủ các thông tin bắt buộc trên trước khi qua bước kế tiếp';
+            alert(mess);
+            return false;
+        }
+        if (!isValidEmail(Rel_Email)) {
+            alert('Email không hợp lệ, xin vui lòng kiểm tra lại');
+            return false;
+        }        
+        return true;        
+    }
+
+    function Child_BirthDayUpdateView(){     
+        var birthDay=$('#Child_BirthDay_UI').val();
+        if(birthDay.length==10)
+        {
+            //Check ngay thang nam hop le ko
+            var dateParts = birthDay.split("/");
+            var _year=dateParts[2];
+            var _month=dateParts[1] - 1;
+            var _day=dateParts[0];
+            if(_month>=0&&_month<12)
+            {
+                if(_day>0&&_day<=31)
+                {
+                    var date = new Date(_year,_month,_day);
+                    var currentYear=parseInt(2013);
+                    var year=parseInt(_year);
+                    var age=currentYear-year;
+                    setValue('#Child_Age_UI',age);              
+                }
+                else
+                    alert("Ngày sinh không hợp lệ");
+            }
+            else
+                alert("Ngày sinh không hợp lệ");
+        }
+        else if(birthDay.length==4)
+        {
+                var currentYear=parseInt(2013);
+                var year=parseInt(birthDay);
+                var age=currentYear-year;
+                setValue('#Child_Age_UI',age);   
+        }
+        else
+        {
+            alert("Dữ liệu Ngày sinh không hợp lệ");
+        }           
+    }
+
+    function Child_AgeChange(){
+        var age=$('#Child_Age_UI').val();
+        var currentYear=parseInt(2013);
+        if(age<=0)
+            alert("Tuổi không hợp lệ");
+        else
+        {
+            var year=currentYear-age;
+            setValue('#Child_BirthDay_UI',year);            
+        }
+    }
+
+    function Child_CityUpdateView()
+    {        
+        $('#Child_CityName_UI').val($('#Child_City_UI option:selected').text());        
+    }
+
+    function Rel_CityUpdateView()
+    {        
+        $('#Rel_CityName_UI').val($('#Rel_City_UI option:selected').text());        
+    }
+</script>
+<div id="bookingStep2_2" class="BookingStepCSS" style=" margin-left:240px">
+    <div id="block-inner-right-2">
+       <!-- <div class="block-inner-right-2-top">
+        </div>
+      <div class="block-inner-right-2-content">
+            <h4>
+                Thông tin Bệnh nhân Nhi</h4>
+            <p class="for-form ChildrenNoService">
+                <label class="infor-sponsor">
+                    MSBN (nếu có):</label>
+                <input class="year-sponsor" id="PrescriptionCode_UI" maxlength="50" name="PrescriptionCode_UI" style="width:153px;margin-left:0px;margin-right:9px" type="text" value="" />                
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Họ <span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" data-bind="value:Child_LastName,valueUpdate: &#39;change&#39;" id="Child_LastName_UI" maxlength="50" name="Child_LastName_UI" style="width:170px;margin-left:40px;margin-right:5px" type="text" value="" />
+                <label class="infor-sponsor">
+                    Tên <span class="color-red">(*)</span>:</label>
+                <input class="sex-sponsor" data-bind="value:Child_FirstName,valueUpdate: &#39;change&#39;" id="Child_FirstName_UI" maxlength="30" name="Child_FirstName_UI" style="width:100px;margin-left:28px;" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Ngày sinh<span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" id="Child_BirthDay_UI" maxlength="10" name="Child_BirthDay_UI" onchange="Child_BirthDayUpdateView()" style="width:170px;margin-right:5px; margin-left:1px" type="text" value="" />
+                <label class="infor-sponsor">
+                    Tuổi:</label>
+                <input class="sex-sponsor" id="Child_Age_UI" maxlength="2" name="Child_Age_UI" onchange="Child_AgeChange()" style="width:100px;margin-left:45px" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Giới tính<span class="color-red">(*)</span>:</label>
+                <select class="year-sponsor" id="Child_Gender_UI" name="Child_Gender_UI" style="width:100px;margin-left:9px;margin-right:85px"><option value="Nam">Nam</option>
+<option value="Nữ">Nữ</option>
+</select>
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Địa chỉ<span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" data-bind="value:Child_Address,valueUpdate: &#39;change&#39;" id="Child_Address_UI" name="Child_Address_UI" style="width:170px;margin-left:19px;margin-right:3px" type="text" value="" />
+                <label class="infor-sponsor">
+                    Tỉnh/TP<span class="color-red">(*)</span>:</label>
+                <select class="sex-sponsor" id="Child_City_UI" name="Child_City_UI" onchange="Child_CityUpdateView()" style="width:100px;margin-left:19px;"><option value="2">H&#224; Nội</option>
+<option value="3">Hải Ph&#242;ng</option>
+<option value="4">Vĩnh Ph&#250;c</option>
+<option value="5">H&#224; T&#226;y</option>
+<option value="6">Hải Dương</option>
+<option value="7">Hưng Y&#234;n</option>
+<option value="8">H&#224; Nam</option>
+<option value="9">Nam Định</option>
+<option value="10">Th&#225;i B&#236;nh</option>
+<option value="11">Ninh B&#236;nh</option>
+<option value="12">H&#224; Giang</option>
+<option value="13">Cao Bằng</option>
+<option value="14">L&#224;o Cai</option>
+<option value="15">Bắc Kạn</option>
+<option value="16">Lạng Sơn</option>
+<option value="17">Tuy&#234;n Quang</option>
+<option value="18">Y&#234;n B&#225;i</option>
+<option value="19">Th&#225;i Nguy&#234;n</option>
+<option value="20">Ph&#250; Thọ</option>
+<option value="21">Bắc Giang</option>
+<option value="22">Bắc Ninh</option>
+<option value="23">Quảng Ninh</option>
+<option value="24">Lai Ch&#226;u</option>
+<option value="25">Sơn La</option>
+<option value="26">H&#242;a B&#236;nh</option>
+<option value="27">Điện Bi&#234;n</option>
+<option value="28">Thanh H&#243;a</option>
+<option value="29">Nghệ An</option>
+<option value="30">H&#224; Tĩnh</option>
+<option value="31">Quảng B&#236;nh</option>
+<option value="32">Quảng Trị</option>
+<option value="33">Thừa Thi&#234;n - Huế</option>
+<option value="34">Đ&#224; Nẵng</option>
+<option value="35">Quảng Nam</option>
+<option value="36">Quảng Ng&#227;i</option>
+<option value="37">B&#236;nh Định</option>
+<option value="38">Ph&#250; Y&#234;n</option>
+<option value="39">Kh&#225;nh H&#242;a</option>
+<option value="40">Kon Tum</option>
+<option value="41">Gia Lai</option>
+<option value="42">Đắk Lắk</option>
+<option value="43">Đắk N&#244;ng</option>
+<option selected="selected" value="44">Hồ Ch&#237; Minh</option>
+<option value="45">L&#226;m Đồng</option>
+<option value="46">Ninh Thuận</option>
+<option value="47">B&#236;nh Phước</option>
+<option value="48">T&#226;y Ninh</option>
+<option value="49">B&#236;nh Dương</option>
+<option value="50">Đồng Nai</option>
+<option value="51">B&#236;nh Thuận</option>
+<option value="52">B&#224; Rịa - Vũng Tầu</option>
+<option value="53">Long An</option>
+<option value="54">Đồng Th&#225;p</option>
+<option value="55">An Giang</option>
+<option value="56">Tiền Giang</option>
+<option value="57">Vĩnh Long</option>
+<option value="58">Bến Tre</option>
+<option value="59">Ki&#234;n Giang</option>
+<option value="60">Cần Thơ</option>
+<option value="61">Tr&#224; Vinh</option>
+<option value="62">S&#243;c Trăng</option>
+<option value="63">Bạc Li&#234;u</option>
+<option value="64">C&#224; Mau</option>
+<option value="65">Hậu Giang</option>
+</select>
+                <input id="Child_CityName_UI" name="Child_CityName_UI" type="hidden" value="Hồ Chí Minh" />
+            </p>
+        </div>
+        <div class="block-inner-right-2-bottom">
+        </div>
+    </div>
+    <div id="block-inner-right-2" style="margin-top: 5px">
+        <div class="block-inner-right-2-top">
+        </div>
+        <div class="block-inner-right-2-content">
+            <h4>
+                Thông tin Người đại diện Bệnh nhân Nhi</h4>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Họ & Tên<span class="color-red">(*)</span>:</label>
+                <input data-bind="value:Rel_FullName,valueUpdate: &#39;change&#39;" id="Rel_FullName_UI" name="Rel_FullName_UI" style="width:360px;margin-left:5px;" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Ngày sinh<span class="color-red">(*)</span>:</label>                
+                <input class="year-sponsor" id="Rel_BirthDay_UI" maxlength="10" name="Rel_BirthDay_UI" style="width:170px;margin-right:5px; margin-left:0" type="text" value="" />
+                <label class="infor-sponsor">
+                    Giới tính<span class="color-red">(*)</span>:</label>
+                <select class="sex-sponsor" id="Rel_Gender_UI" name="Rel_Gender_UI" style="width:100px;margin-left:5px;"><option value="Nam">Nam</option>
+<option value="Nữ">Nữ</option>
+</select>
+            </p>
+            <p class="for-form">               
+                <label class="infor-sponsor">
+                    CMND<span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" data-bind="value:Rel_IdentityCard,valueUpdate: &#39;change&#39;" id="Rel_IdentityCard_UI" maxlength="9" name="Rel_IdentityCard_UI" onkeypress="return acceptNumberOnly(this, event);" style="width:170px;margin-left:20px;margin-right:5px;" type="text" value="" />
+                <label class="infor-sponsor">
+                    ĐT <span class="color-red">(*)</span>:</label>
+                <input class="sex-sponsor" data-bind="value:Rel_Phone,valueUpdate: &#39;change&#39;" id="Rel_Phone_UI" maxlength="15" name="Rel_Phone_UI" onkeypress="return acceptNumberOnly(this, event);" style="width:100px;margin-left:28px" type="text" value="" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Địa chỉ<span class="color-red">(*)</span>:</label>
+                <input class="year-sponsor" data-bind="value:Rel_Address,valueUpdate: &#39;change&#39;" id="Rel_Address_UI" name="Rel_Address_UI" style="width:170px;margin-left:19px;margin-right:3px" type="text" value="" />
+                <label class="infor-sponsor">
+                    Tỉnh/TP<span class="color-red">(*)</span>:</label>
+                <select class="year-sponsor" id="Rel_City_UI" name="Rel_City_UI" onchange="Rel_CityUpdateView()" style="width:100px;margin-left:10px;margin-right:5px"><option value="2">H&#224; Nội</option>
+<option value="3">Hải Ph&#242;ng</option>
+<option value="4">Vĩnh Ph&#250;c</option>
+<option value="5">H&#224; T&#226;y</option>
+<option value="6">Hải Dương</option>
+<option value="7">Hưng Y&#234;n</option>
+<option value="8">H&#224; Nam</option>
+<option value="9">Nam Định</option>
+<option value="10">Th&#225;i B&#236;nh</option>
+<option value="11">Ninh B&#236;nh</option>
+<option value="12">H&#224; Giang</option>
+<option value="13">Cao Bằng</option>
+<option value="14">L&#224;o Cai</option>
+<option value="15">Bắc Kạn</option>
+<option value="16">Lạng Sơn</option>
+<option value="17">Tuy&#234;n Quang</option>
+<option value="18">Y&#234;n B&#225;i</option>
+<option value="19">Th&#225;i Nguy&#234;n</option>
+<option value="20">Ph&#250; Thọ</option>
+<option value="21">Bắc Giang</option>
+<option value="22">Bắc Ninh</option>
+<option value="23">Quảng Ninh</option>
+<option value="24">Lai Ch&#226;u</option>
+<option value="25">Sơn La</option>
+<option value="26">H&#242;a B&#236;nh</option>
+<option value="27">Điện Bi&#234;n</option>
+<option value="28">Thanh H&#243;a</option>
+<option value="29">Nghệ An</option>
+<option value="30">H&#224; Tĩnh</option>
+<option value="31">Quảng B&#236;nh</option>
+<option value="32">Quảng Trị</option>
+<option value="33">Thừa Thi&#234;n - Huế</option>
+<option value="34">Đ&#224; Nẵng</option>
+<option value="35">Quảng Nam</option>
+<option value="36">Quảng Ng&#227;i</option>
+<option value="37">B&#236;nh Định</option>
+<option value="38">Ph&#250; Y&#234;n</option>
+<option value="39">Kh&#225;nh H&#242;a</option>
+<option value="40">Kon Tum</option>
+<option value="41">Gia Lai</option>
+<option value="42">Đắk Lắk</option>
+<option value="43">Đắk N&#244;ng</option>
+<option selected="selected" value="44">Hồ Ch&#237; Minh</option>
+<option value="45">L&#226;m Đồng</option>
+<option value="46">Ninh Thuận</option>
+<option value="47">B&#236;nh Phước</option>
+<option value="48">T&#226;y Ninh</option>
+<option value="49">B&#236;nh Dương</option>
+<option value="50">Đồng Nai</option>
+<option value="51">B&#236;nh Thuận</option>
+<option value="52">B&#224; Rịa - Vũng Tầu</option>
+<option value="53">Long An</option>
+<option value="54">Đồng Th&#225;p</option>
+<option value="55">An Giang</option>
+<option value="56">Tiền Giang</option>
+<option value="57">Vĩnh Long</option>
+<option value="58">Bến Tre</option>
+<option value="59">Ki&#234;n Giang</option>
+<option value="60">Cần Thơ</option>
+<option value="61">Tr&#224; Vinh</option>
+<option value="62">S&#243;c Trăng</option>
+<option value="63">Bạc Li&#234;u</option>
+<option value="64">C&#224; Mau</option>
+<option value="65">Hậu Giang</option>
+</select>
+                <input id="Rel_CityName_UI" name="Rel_CityName_UI" type="hidden" value="Hồ Chí Minh" />
+            </p>
+            <p class="for-form">
+                <label class="infor-sponsor">
+                    Email <span class="color-red">(*)</span>:</label>
+                <input data-bind="value:Rel_Email,valueUpdate: &#39;change&#39;" id="Rel_Email_UI" name="Rel_Email_UI" style="width:360px;margin-left:23px" type="text" value="" />
+            </p>
+            <p style="color:Red;margin-left:73px;font-style:italic;font-size:12px;">Vui lòng nhập đúng email của anh/chị. Chúng tôi sẽ gửi phiếu khám từ email <a href="datlichkham.hbs@hoibacsi.com">datlichkham.hbs@hoibacsi.com</a> đến email này ( Vui lòng kiểm tra thêm hộp mail rác của anh chị)</p>
+            <label class="notes-form" style="width: 100%;">
+                <ul>
+                    <span class="text-under">Chú ý:</span>
+                    <li style="list-style: none">- Những mục có dấu <span class="color-red">(*)</span> là
+                        bắt buộc.</li>
+                    <li style="list-style: none">- Mã số bệnh nhân sẽ được cấp phát sau khi bạn đăng ký
+                        thành công !</li>
+                </ul>
+            </label>
+            <br class="clearfloat" />                                                   
+            <input class="btnSubmit" type="submit" name="Page1_to_Page2" value="Tiếp theo" onclick="return goToBookingChildrenRegister();" />
+            
+        </div>
+        <div class="block-inner-right-2-bottom">
+        </div>-->
+    </div>
+</div>
+<input id="State" name="State" type="hidden" value="{&quot;TransactionId&quot;:0,&quot;BookingId&quot;:null,&quot;GroupId&quot;:0,&quot;PatientCode&quot;:null,&quot;PrescriptionCode&quot;:null,&quot;EWalletAccountID&quot;:0,&quot;EWalletAccountCode&quot;:null,&quot;EWalletAccountMessage&quot;:null,&quot;Balance&quot;:0,&quot;PaymentMethodId&quot;:null,&quot;PaymentMethodCode&quot;:null,&quot;AccountHolderPaymentName&quot;:null,&quot;IsBaby&quot;:false,&quot;PatientRegistered&quot;:0,&quot;RequestInfo&quot;:null,&quot;CacheKey&quot;:null,&quot;IsCetification&quot;:false,&quot;BabyAgeType&quot;:0,&quot;BookRegisterType&quot;:0,&quot;FullName&quot;:null,&quot;IdentityCard&quot;:null,&quot;CellPhone&quot;:null,&quot;Email&quot;:null,&quot;DateOfBirth&quot;:null,&quot;Gender&quot;:null,&quot;Address&quot;:null,&quot;Child_FirstName&quot;:null,&quot;Child_LastName&quot;:null,&quot;Child_BirthDay&quot;:null,&quot;Child_Age&quot;:null,&quot;Child_Gender&quot;:null,&quot;Child_Address&quot;:null,&quot;Child_City&quot;:0,&quot;Child_CityName&quot;:null,&quot;Rel_FullName&quot;:null,&quot;Rel_BirthDay&quot;:null,&quot;Rel_Gender&quot;:null,&quot;Rel_Address&quot;:null,&quot;Rel_City&quot;:0,&quot;Rel_CityName&quot;:null,&quot;Rel_IdentityCard&quot;:null,&quot;Rel_Email&quot;:null,&quot;Rel_Phone&quot;:null,&quot;Ob_FirstName&quot;:null,&quot;Ob_LastName&quot;:null,&quot;Ob_BirthDay&quot;:null,&quot;Ob_Gender&quot;:null,&quot;Ob_Age&quot;:null,&quot;Ob_Address&quot;:null,&quot;Ob_City&quot;:0,&quot;Ob_CityName&quot;:null,&quot;Ob_IdentityCard&quot;:null,&quot;Ob_Email&quot;:null,&quot;Ob_Phone&quot;:null,&quot;InformationPatientDetail&quot;:{&quot;BankId&quot;:null,&quot;BankName&quot;:null,&quot;DoctorId&quot;:null,&quot;DoctorName&quot;:null,&quot;RoomId&quot;:null,&quot;RoomName&quot;:null,&quot;ServiceId&quot;:null,&quot;ServiceName&quot;:null,&quot;OrderServiceId&quot;:null,&quot;OrderServiceName&quot;:null,&quot;ExamDate&quot;:null,&quot;ExamHour&quot;:null,&quot;OrderNo&quot;:null,&quot;AssumeHour&quot;:null,&quot;RegisterDate&quot;:&quot;\/Date(-62135596800000)\/&quot;,&quot;TransCode&quot;:null,&quot;TotalPriceOfBooking&quot;:20000,&quot;IsSupportPrintCard&quot;:true,&quot;SupportPrintCardName&quot;:&quot;Phí cấp Thẻ ( Nhận thẻ tại quầy số 8)&quot;,&quot;PricePrintCard&quot;:10000,&quot;TotalPriceOfService&quot;:0,&quot;TotalPriceOfOrderService&quot;:null,&quot;TotalPriceOfServiceSAPaymentByCard&quot;:null,&quot;Total&quot;:20000,&quot;UserHostIP&quot;:&quot;171.252.190.129&quot;,&quot;TransNo&quot;:null,&quot;BookingCode&quot;:null,&quot;TransTicket&quot;:null,&quot;TransReturnCode&quot;:null,&quot;TransReturnMessage&quot;:null,&quot;vpc_CustomerCode&quot;:null,&quot;vpc_Code&quot;:null,&quot;vpc_MerchTxnRef&quot;:null,&quot;vpc_TransactionNo&quot;:null,&quot;vpc_TxnResponseCode&quot;:null,&quot;vpc_ReceiptNo&quot;:null,&quot;vpc_Amount&quot;:null,&quot;vpc_Message&quot;:null,&quot;vpc_Card&quot;:null,&quot;TimeName&quot;:null,&quot;SupportServiceId&quot;:0,&quot;SupportServiceName&quot;:&quot;null&quot;,&quot;PriceSupportService&quot;:0}}"></input></form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[],"FormId":"form0","ReplaceValidationSummary":false});
+//]]>
+</script><script type="text/javascript">
+/*<![CDATA[*/
+//var viewModel = {
+//					Ob_FirstName : ko.observable("Quân"),
+//					Ob_LastName : ko.observable("Trương Trọng"),					
+//					Ob_IdentityCard: ko.observable("241037400"),
+//					Ob_Address: ko.observable("172A Nguyễn Đình Chiểu , Q.3"),             
+//					Ob_Phone: ko.observable("01282708709"),
+//					Ob_Email: ko.observable("quantt@fsw.vn"),
+//                    Child_LastName : ko.observable("Nguyễn Thị Bảo"),
+//					Child_FirstName : ko.observable("Trâm"),									
+//					Child_Address: ko.observable("172A Nguyễn Đình Chiểu ,Q.3"),             
+//                    Rel_FullName: ko.observable("Trương Trọng Quân"),	
+//                    Rel_IdentityCard: ko.observable("241037400"),
+//                    Rel_Phone: ko.observable("01282708709"),
+//					Rel_Email: ko.observable("quantt@fsw.vn"),
+//                    Rel_Address: ko.observable("172A Nguyễn Đình Chiểu ,Q.3"),				
+//                    Amount: ko.observable("")
+////                    Ob_FirstName : ko.observable(""),
+////					Ob_LastName : ko.observable(""),					
+////					Ob_IdentityCard: ko.observable(""),
+////					Ob_Address: ko.observable(""),             
+////					Ob_Phone: ko.observable(""),
+////					Ob_Email: ko.observable(""),
+////                    Child_LastName : ko.observable(""),
+////					Child_FirstName : ko.observable(""),									
+////					Child_Address: ko.observable(""),             
+////                    Rel_FullName: ko.observable(""),	
+////                    Rel_IdentityCard: ko.observable(""),
+////                    Rel_Phone: ko.observable(""),
+////					Rel_Email: ko.observable(""),
+////                    Rel_Address: ko.observable(""),				
+////                    Amount: ko.observable("")
+//				};
+//    viewModel.Ob_fullName = ko.dependentObservable(function () {    
+//    return viewModel.Ob_LastName() + " " + viewModel.Ob_FirstName();
+//    });	
+//    viewModel.Child_fullName = ko.dependentObservable(function () {    
+//    return viewModel.Child_LastName() + " " + viewModel.Child_FirstName();
+//    });	
+//    ko.applyBindings(viewModel);
+/*]]>*/ 
+</script>
+
+        </div>
+        <div id="footer" style="margin-top: 10px">
+            <div style="text-align: center">
+                <div class="pay-accept">
+                    <img src="Content/bank/pay-accept.png" border="0" /></div>
+                <div class="bank-logo">
+                    <img src="Content/bank/bank-logo-all.png" border="0" /></div>
+            </div>
+            <div class="footer-link">
+                <div class="copyright-index">
+                    <p>
+                        Copyright © 2011 datlichkham.hoibacsi.com. Phát triển bởi <a href="http://fsw.vn">Falcon
+                            Software JSC</a>.
+                    </p>
+                </div>
+                <div class="footer-link">
+                    <ul>
+                        <li><a href="/Support">Điều kiện chung</a></li>
+                        <li>|</li>
+                        <li><a href="/Support">Hướng dẫn</a></li>
+                        <li>|</li>
+                        <li><a href="/AboutUs">Giới Thiệu</a></li>
+                        <li>|</li>
+                        <li><a href="/Services">Bảng giá Dịch vụ</a></li>
+                        <li>|</li>
+                        <li><a href="/Contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end #footer -->
+    </div>   
+    <!-- Histats.com  START (hidden counter)-->
+<script type="text/javascript">
+    document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));
+</script>
+<a href="http://www.histats.com" target="_blank" title="web statistic" >
+<script  type="text/javascript" >
+    try {
+        Histats.start(1, 2192242, 4, 0, 0, 0, "");
+        Histats.track_hits();
+    } catch (err) { };
+</script>
+</a>
+<noscript>
+<a href="http://www.histats.com" target="_blank">
+    <img  src="http://sstatic1.histats.com/0.gif?2192242&101" alt="web statistic" border="0" />
+</a>
+</noscript>
+<!-- Histats.com  END  -->
+   </body>
+</html>
